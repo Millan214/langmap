@@ -87,7 +87,7 @@ const WordCard = (props: Props): JSX.Element => {
 				<h1>Type</h1>
 				<select
 					name="wordType"
-					tabIndex={1}
+					
 					onFocus={() => { setItemInFocus(true) }}
 					onBlur={() => { setItemInFocus(false) }}
 				>
@@ -96,7 +96,8 @@ const WordCard = (props: Props): JSX.Element => {
 					}
 				</select>
 				<button
-					tabIndex={1}
+					
+					aria-label='apply changes'
 				>
 					apply changes
 				</button>
@@ -168,7 +169,7 @@ const WordCard = (props: Props): JSX.Element => {
 				return (
 					<motion.button
 						className='transition-all focus:ring-4 ring-blue-900 outline-none flex content-center items-center gap-4 text-xl shadow-md px-4 rounded-md bg-blue-200 border-2 border-blue-800'
-						tabIndex={1}
+						
 						onClick={() => { editWord() }}
 						onFocus={() => setItemInFocus(true)}
 						onBlur={() => setItemInFocus(false)}
@@ -187,7 +188,7 @@ const WordCard = (props: Props): JSX.Element => {
 			default: return (
 				<motion.button
 					className='transition-all focus:ring-4 ring-blue-900 outline-none flex content-center items-center gap-4 text-xl shadow-md px-4 rounded-md bg-blue-200 border-2 border-blue-800'
-					tabIndex={1}
+					
 					onClick={() => { editWord() }}
 					onFocus={() => setItemInFocus(true)}
 					onBlur={() => setItemInFocus(false)}
@@ -208,7 +209,9 @@ const WordCard = (props: Props): JSX.Element => {
 
 	return (
 		<motion.div
-			tabIndex={1}
+			tabIndex={0}
+			aria-label='word'
+			aria-labelledby='card'
 			className='overflow-hidden relative cursor-pointer select-none transition-all outline-none focus:ring-4 ring-slate-400 bg-slate-200 px-4 py-3 my-4 rounded-lg shadow-md flex flex-col align-middle justify-between'
 			onKeyDown={(event) => handleItemKeyDown(event)}
 			animate={open ? 'open' : 'closed'}
@@ -220,7 +223,7 @@ const WordCard = (props: Props): JSX.Element => {
 					<motion.div
 						className='bg-slate-50 flex justify-center align-middle rounded-lg overflow-hidden shadow-md'
 					>
-						<Image className='object-cover' src={Germany_Flag} width={12} height={40} />
+						<Image alt='german flag' className='object-cover' src={Germany_Flag} width={12} height={40} />
 						<motion.div className='flex overflow-hidden items-center px-4 text-2xl'>
 							{props.word.value.german}
 						</motion.div>
@@ -229,7 +232,7 @@ const WordCard = (props: Props): JSX.Element => {
 					<motion.div
 						className='bg-slate-50 flex justify-center align-middle rounded-lg overflow-hidden shadow-md'
 					>
-						<Image src={Spanish_Flag} width={12} height={40} />
+						<Image alt='spanish flag' src={Spanish_Flag} width={12} height={40} />
 						<motion.div className='flex overflow-hidden items-center px-4 text-2xl'>
 							{props.word.value.spanish}
 						</motion.div>
@@ -242,7 +245,9 @@ const WordCard = (props: Props): JSX.Element => {
 					{ showWordType(props.word.type) }
 
 					<motion.button
-						tabIndex={1}
+						
+						aria-label={`${open ? "close" : "open"} word card`}
+						aria-expanded={ open }
 						className='transition-all bg-fuchsia-300 border-fuchsia-800 ring-fuchsia-900 focus:ring-4 outline-none flex p-1 rounded-lg border-4'
 						onClick={() => toggleOpen()}
 						onFocus={() => setItemInFocus(true)}
@@ -319,6 +324,7 @@ const WordCard = (props: Props): JSX.Element => {
 
 					<motion.button
 						className='w-10 h-10 m-1 flex items-center justify-center p-1 z-10 rounded-lg outline-none bg-blue-300 border-blue-600 border-2 ring-gray-400 focus:ring-4'
+						aria-label='edit word'
 						onClick={() => { editWord() }}
 						onFocus={() => setItemInFocus(true)}
 						onBlur={() => setItemInFocus(false)}
@@ -348,6 +354,7 @@ const WordCard = (props: Props): JSX.Element => {
 
 					<motion.button
 						className='m-1 flex items-center justify-center p-1 z-10 rounded-lg outline-none bg-red-800 ring-gray-400 focus:ring-4'
+						aria-label='edit word'
 						onClick={() => { handleRemoveWord() }}
 						tabIndex={open ? 1 : -1}
 						variants={{
