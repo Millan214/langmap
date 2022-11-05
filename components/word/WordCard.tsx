@@ -223,7 +223,7 @@ const WordCard = (props: Props): JSX.Element => {
 					<motion.div
 						className='bg-slate-50 flex justify-center align-middle rounded-lg overflow-hidden shadow-md'
 					>
-						<Image alt='german flag' className='object-cover' src={Germany_Flag} width={12} height={40} />
+						<Image alt='german flag' loading='lazy' className='object-cover' src={Germany_Flag} width={12} height={40} />
 						<motion.div className='flex overflow-hidden items-center px-4 text-2xl'>
 							{props.word.value.german}
 						</motion.div>
@@ -232,7 +232,7 @@ const WordCard = (props: Props): JSX.Element => {
 					<motion.div
 						className='bg-slate-50 flex justify-center align-middle rounded-lg overflow-hidden shadow-md'
 					>
-						<Image alt='spanish flag' src={Spanish_Flag} width={12} height={40} />
+						<Image alt='spanish flag' loading='lazy' src={Spanish_Flag} width={12} height={40} />
 						<motion.div className='flex overflow-hidden items-center px-4 text-2xl'>
 							{props.word.value.spanish}
 						</motion.div>
@@ -245,10 +245,9 @@ const WordCard = (props: Props): JSX.Element => {
 					{ showWordType(props.word.type) }
 
 					<motion.button
-						
 						aria-label={`${open ? "close" : "open"} word card`}
 						aria-expanded={ open }
-						className='transition-all bg-fuchsia-300 border-fuchsia-800 ring-fuchsia-900 focus:ring-4 outline-none flex p-1 rounded-lg border-4'
+						className='transition-all bg-fuchsia-200 border-fuchsia-800 ring-fuchsia-900 focus:ring-2 outline-none flex rounded-lg border-2'
 						onClick={() => toggleOpen()}
 						onFocus={() => setItemInFocus(true)}
 						onBlur={() => setItemInFocus(false)}
@@ -275,7 +274,7 @@ const WordCard = (props: Props): JSX.Element => {
 							}
 						}}
 					>
-						<ArrowDown width={30} height={30} strokeWidth={2.5} color="black" />
+						<ArrowDown width={30} height={30} strokeWidth={2} color="rgb(134 25 143)" />
 					</motion.button>
 
 				</motion.div>

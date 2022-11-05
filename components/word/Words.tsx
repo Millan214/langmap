@@ -6,7 +6,6 @@ import { addWord } from '../redux/words/wordsSlice'
 
 const Words = () => {
 
-
 	const reduxWords: Word[] = useAppSelector(state => state.words.words)
 	const [words, setWords] = useState( reduxWords )
 
@@ -78,7 +77,7 @@ const Words = () => {
 					className='flex items-center w-full sm:w-1/2'
 				>
 					<input
-						tabIndex={1}
+						tabIndex={0}
 						type="text"
 						name=""
 						placeholder='Search'

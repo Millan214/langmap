@@ -11,6 +11,7 @@ const Home: NextPage = () => {
 
 			<Head>
 				<title>LangMap</title>
+				<meta name="description" content="A web application to add and manage words in different languages" />
 			</Head>
 
 			<Provider store={store}>
