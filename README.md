@@ -1,0 +1,1 @@
+A Next.js application to add and manage words ( for now only in german && spanish ), in the future ill add games
